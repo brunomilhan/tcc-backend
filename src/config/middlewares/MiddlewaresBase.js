@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var MethodOverride_1 = require("./MethodOverride");
+var RoutesBase_1 = require("../routes/RoutesBase");
 var MiddlewaresBase = (function () {
     function MiddlewaresBase() {
     }
@@ -10,6 +11,7 @@ var MiddlewaresBase = (function () {
             var app = express();
             app.use(bodyParser.json());
             app.use(MethodOverride_1.MethodOverride.config);
+            app.use(RoutesBase_1.RoutesBase.config);
             return app;
         },
         enumerable: true,
