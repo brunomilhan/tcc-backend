@@ -12,7 +12,7 @@ export class UserRoutes {
 
     get routes() {
         let router = express.Router();
-        router.get('/users', this._userController.litstAll);
+        router.get('/users', this._userController.listAll);
 
         return router;
     }
