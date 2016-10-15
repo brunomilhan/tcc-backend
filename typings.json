@@ -2,7 +2,8 @@
   "name": "tcc-backend",
   "dependencies": {
     "body-parser": "registry:npm/body-parser#1.15.2+20160815132839",
-    "express": "registry:npm/express#4.14.0+20160925001530"
+    "express": "registry:npm/express#4.14.0+20160925001530",
+    "mongoose": "registry:npm/mongoose#4.3.5+20160628072220"
   },
   "globalDependencies": {
     "method-override": "registry:dt/method-override#0.0.0+20160925094606",
