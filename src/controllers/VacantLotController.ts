@@ -29,7 +29,7 @@ export class VacantLotController {
 
     update(req: express.Request, res: express.Response): void {
         let vacantLot: IVacantLotModel = <IVacantLotModel>req.body;
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let vacantLotBusiness = new VacantLotBusiness();
 
         vacantLotBusiness.update(_id, vacantLot, (error, result) => {
@@ -41,7 +41,7 @@ export class VacantLotController {
     }
 
     delete(req: express.Request, res: express.Response): void {
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let vacantLotBusiness = new VacantLotBusiness();
 
         vacantLotBusiness.remove(_id, (error, result) => {
@@ -53,7 +53,7 @@ export class VacantLotController {
     }
 
     findByID(req: express.Request, res: express.Response): void {
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let vacantLotBusiness = new VacantLotBusiness();
 
         vacantLotBusiness.findByID(_id, (error, result) => {

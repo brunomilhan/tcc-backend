@@ -28,7 +28,7 @@ export class UserController {
 
     update(req: express.Request, res: express.Response): void {
         let user: IUserModel = <IUserModel>req.body;
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let userBusiness = new UserBusiness();
 
         userBusiness.update(_id, user, (error, result) => {
@@ -40,7 +40,7 @@ export class UserController {
     }
 
     delete(req: express.Request, res: express.Response): void {
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let userBusiness = new UserBusiness();
 
         userBusiness.remove(_id, (error, result) => {
@@ -52,7 +52,7 @@ export class UserController {
     }
 
     findByID(req: express.Request, res: express.Response): void {
-        let _id: string = req.params._id;
+        let _id: string = req.params['_id'];
         let userBusiness = new UserBusiness();
 
         userBusiness.findByID(_id, (error, result) => {
