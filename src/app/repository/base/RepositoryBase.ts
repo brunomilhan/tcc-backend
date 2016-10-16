@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import {IReadWrite} from "./IReadWrite";
+import {IReadWrite} from "../interfaces/IReadWrite";
 
 export class RepositoryBase<T extends mongoose.Document> implements IReadWrite<T> {
     private _model: mongoose.Model<mongoose.Document>;

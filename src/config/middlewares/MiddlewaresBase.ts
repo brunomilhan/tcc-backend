@@ -1,7 +1,7 @@
 import express = require('express');
 import bodyParser = require('body-parser');
 import {MethodOverride} from "./MethodOverride";
-import {RoutesBase} from "../routes/RoutesBase";
+import {RoutesBase} from "../routes/base/RoutesBase";
 
 export class MiddlewaresBase {
 

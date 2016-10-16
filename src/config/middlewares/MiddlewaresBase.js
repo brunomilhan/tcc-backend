@@ -2,7 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var MethodOverride_1 = require("./MethodOverride");
-var RoutesBase_1 = require("../routes/RoutesBase");
+var RoutesBase_1 = require("../routes/base/RoutesBase");
 var MiddlewaresBase = (function () {
     function MiddlewaresBase() {
     }
