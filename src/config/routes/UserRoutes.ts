@@ -12,7 +12,11 @@ export class UserRoutes {
 
     get routes() {
         let router = express.Router();
-        router.get('/users', this._userController.listAll);
+        router.get('/users', this._userController.list);
+        router.post('/users', this._userController.create);
+        router.get('/users/:_id', this._userController.findByID);
+        router.put('/users/:_id', this._userController.update);
+        router.delete('/users/:_id', this._userController.delete);
 
         return router;
     }
