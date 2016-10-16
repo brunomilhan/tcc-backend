@@ -6,8 +6,6 @@ let mongooseConnection = DataAccess.mongooseConnection;
 class UserSchema {
 
     static get schema() {
-
-
         let schema = mongooseInstance.Schema({
             name : {
                 type : String,

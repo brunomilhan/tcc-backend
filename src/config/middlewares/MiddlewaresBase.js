@@ -9,6 +9,7 @@ var MiddlewaresBase = (function () {
     Object.defineProperty(MiddlewaresBase, "config", {
         get: function () {
             var app = express();
+            app.use(bodyParser.urlencoded({ extended: false }));
             app.use(bodyParser.json());
             app.use(MethodOverride_1.MethodOverride.config);
             app.use(RoutesBase_1.RoutesBase.config);

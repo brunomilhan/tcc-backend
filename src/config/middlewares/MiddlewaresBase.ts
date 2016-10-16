@@ -7,6 +7,7 @@ export class MiddlewaresBase {
 
     static get config() {
         let app = express();
+        app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
         app.use(MethodOverride.config);
         app.use(RoutesBase.config);
