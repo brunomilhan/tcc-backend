@@ -24,11 +24,9 @@ export class UserController {
             else
                 res.send('success');
         });
-
     }
 
     update(req: express.Request, res: express.Response): void {
-        // será que eu preciso disso...
         let user: IUserModel = <IUserModel>req.body;
         let _id: string = req.params._id;
         let userBusiness = new UserBusiness();
@@ -54,7 +52,6 @@ export class UserController {
     }
 
     findByID(req: express.Request, res: express.Response): void {
-
         let _id: string = req.params._id;
         let userBusiness = new UserBusiness();
 
