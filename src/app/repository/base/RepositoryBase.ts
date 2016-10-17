@@ -27,4 +27,8 @@ export class RepositoryBase<T extends mongoose.Document> implements IReadWrite<T
     update(id: string, obj: T, callback: (error: any, result: any) => void) {
         this._model.findByIdAndUpdate(id, obj, callback);
     }
+
+    findOrCreate(objMatch: any, obj: any, callback: (error: any, result: any) => void) {
+        this._model.findOrCreate(objMatch, obj, callback);
+    }
 }

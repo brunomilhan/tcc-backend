@@ -7,6 +7,7 @@ export class UserModel {
         this._iUserModel = iUserModel;
     }
 
+
     get name(): string {
         return this._iUserModel.name;
     }

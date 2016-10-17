@@ -28,4 +28,11 @@ export class UserBusiness {
         this._userRepository.update(id, obj, callback);
     }
 
+    findOrCreateFBUser(id: string, obj: any, callback: (error: any, user: any) => void) {
+        let match = {
+            facebookId: id,
+        };
+        this._userRepository.findOrCreate(match, obj, callback);
+    }
+
 }
