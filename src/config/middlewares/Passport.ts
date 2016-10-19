@@ -64,6 +64,7 @@ export class Passport {
             passport.authenticate('facebook', {failureRedirect: '/'}),
             function (req, res) {
                 res.status(200);
+                res.redirect('/');
             });
     }
 }
