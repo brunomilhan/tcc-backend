@@ -17,7 +17,7 @@ export class VacantLotBusiness {
     }
 
     create(obj: IVacantLotModel, callback: (error: any, result: any) => void) {
-        this._vacantLotRepo.create(obj, callback)
+        this._vacantLotRepo.create(obj, callback);
     }
 
     remove(id: string, callback: (error: any, result: any) => void) {
@@ -27,5 +27,4 @@ export class VacantLotBusiness {
     update(id: string, obj: IVacantLotModel, callback: (error: any, result: any) => void) {
         this._vacantLotRepo.update(id, obj, callback);
     }
-
 }

@@ -1,5 +1,6 @@
 import express = require('express');
 import {UserController} from "../../controllers/UserController";
+import {Passport} from "../middlewares/Passport";
 
 export class UserRoutes {
     private _userController: UserController;
@@ -11,8 +12,8 @@ export class UserRoutes {
     get routes() {
         let router = express.Router();
         // auth endpoints
-        //router.get('/users', Passport.checkAuth ,this._userController.list);
-        router.get('/users', this._userController.list);
+        router.get('/users', Passport.checkAuth ,this._userController.list);
+        //router.get('/users', this._userController.list);
         router.post('/users', this._userController.create);
         router.get('/users/:_id', this._userController.findByID);
         router.put('/users/:_id', this._userController.update);

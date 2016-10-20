@@ -1,8 +1,10 @@
 import {RepositoryBase} from "./base/RepositoryBase";
+import VacantSchema = require('../dataAccess/schemas/VacanLotsSchema');
+import mongoose = require("mongoose");
 import {IVacantLotModel} from "../models/interfaces/IVacantLotModel";
-import VacantSchema = require('../dataAccess/schemas/VacantLotSchema');
 
 export class VacantLotRepository extends RepositoryBase<IVacantLotModel> {
+
     constructor() {
         super(VacantSchema);
     }
