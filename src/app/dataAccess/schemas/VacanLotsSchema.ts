@@ -2,6 +2,7 @@ import DataAccess = require("../DataAccess");
 import mongoose = require("mongoose");
 import {CommentsSchema} from "./vacantLots/embedded/CommentsSchema";
 import {IVacantLotModel} from "../../models/interfaces/IVacantLotModel";
+import {ProblemsSchema} from "./vacantLots/embedded/ProblemsSchema";
 
 let mongooseInstance = DataAccess.mongooseInstance;
 let mongooseConnection = DataAccess.mongooseConnection;
@@ -65,6 +66,9 @@ class VacanLotsSchema {
             },
             comments: {
                 type: [CommentsSchema.schema]
+            },
+            problems: {
+                type: [ProblemsSchema.schema]
             }
         });
         return schema;
