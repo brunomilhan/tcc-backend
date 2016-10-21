@@ -1,38 +1,25 @@
 import DataAccess = require("../../../DataAccess");
-import mongoose = require("mongoose");
-import {PhotosSchema} from "./PhotosSchema";
-
 let mongooseInstance = DataAccess.mongooseInstance;
-export class ProblemsSchema {
+
+export class PhotosSchema {
 
     static get schema() {
         let schema = mongooseInstance.Schema({
-            created_by_username: {
+            upload_by_username: {
                 type: String,
                 require: true
             },
-            created_by_user_id: {
+            upload_by_user_id: {
                 type: Number,
                 require: true
             },
-            problem_title: {
-                type: String,
-                require: true
-            },
-            problem_text: {
-                type: String,
-                require: true
-            },
-            likes: {
-                type: Number,
-                default: 0,
-            },
-            status: {
+            details: {
                 type: String,
                 require: false
             },
-            photos: {
-                type: [PhotosSchema.schema]
+            file_url: {
+                type: String,
+                require: true,
             },
             tag: {
                 type: String,

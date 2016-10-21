@@ -1,26 +1,33 @@
-import DataAccess = require("../../../DataAccess");
+import DataAccess = require("../../DataAccess");
 import mongoose = require("mongoose");
-import {PhotosSchema} from "./PhotosSchema";
+import {TagsToSchema} from "../vacantLots/embedded/TagsToSchema";
 
 let mongooseInstance = DataAccess.mongooseInstance;
-export class ProblemsSchema {
-
+export class TasksSchema {
     static get schema() {
         let schema = mongooseInstance.Schema({
-            created_by_username: {
+            title: {
+                type: String,
+                require: true,
+            },
+            details: {
+                type: String,
+                require: false
+            },
+            date_created: {
+                type: Date,
+                require: true
+            },
+            difficult: {
+                type: String,
+                require: true
+            },
+            created_by_user_name: {
                 type: String,
                 require: true
             },
             created_by_user_id: {
                 type: Number,
-                require: true
-            },
-            problem_title: {
-                type: String,
-                require: true
-            },
-            problem_text: {
-                type: String,
                 require: true
             },
             likes: {
@@ -29,15 +36,15 @@ export class ProblemsSchema {
             },
             status: {
                 type: String,
-                require: false
-            },
-            photos: {
-                type: [PhotosSchema.schema]
+                require: true
             },
             tag: {
                 type: String,
                 require: true,
                 index: true
+            },
+            tags_to: {
+                type: [TagsToSchema.schema]
             }
         });
         return schema;

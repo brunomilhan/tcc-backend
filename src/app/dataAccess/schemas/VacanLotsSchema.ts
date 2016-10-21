@@ -3,6 +3,10 @@ import mongoose = require("mongoose");
 import {CommentsSchema} from "./vacantLots/embedded/CommentsSchema";
 import {IVacantLotModel} from "../../models/interfaces/IVacantLotModel";
 import {ProblemsSchema} from "./vacantLots/embedded/ProblemsSchema";
+import {ContributorsSchema} from "./vacantLots/embedded/ContributorsSchema";
+import {FollowersSchema} from "./vacantLots/embedded/FollowersSchema";
+import {AchievementsSchema} from "./vacantLots/embedded/AchievementsSchema";
+import {SolutionsSchema} from "./solutions/SolutionsSchema";
 
 let mongooseInstance = DataAccess.mongooseInstance;
 let mongooseConnection = DataAccess.mongooseConnection;
@@ -64,11 +68,28 @@ class VacanLotsSchema {
                 type: Number,
                 default: 0,
             },
+            tag: {
+                type: String,
+                require: true,
+                index: true
+            },
             comments: {
                 type: [CommentsSchema.schema]
             },
             problems: {
                 type: [ProblemsSchema.schema]
+            },
+            contributors: {
+                type: [ContributorsSchema.schema]
+            },
+            followers: {
+                type: [FollowersSchema.schema]
+            },
+            achievements:{
+                type: [AchievementsSchema.schema]
+            },
+            solutions: {
+                type: [SolutionsSchema.schema]
             }
         });
         return schema;

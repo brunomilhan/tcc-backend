@@ -1,34 +1,33 @@
 import DataAccess = require("../../../DataAccess");
-import mongoose = require("mongoose");
-import {TagsToSchema} from "./TagsToSchema";
 
 let mongooseInstance = DataAccess.mongooseInstance;
-export class CommentsSchema {
+export class AchievementsSchema {
 
     static get schema() {
         let schema = mongooseInstance.Schema({
-            created_by_username: {
+            title: {
                 type: String,
                 require: true
             },
-            created_by_user_id: {
-                type: Number,
-                require: true
-            },
-            text: {
+            description: {
                 type: String,
                 require: true
             },
-            likes: {
+            score: {
                 type: Number,
-                default: 0,
+                require: true
             },
-            reply_to_comment_id: {
+            date: {
+                type: Date,
+                required: true
+            },
+            user_id: {
                 type: Number,
-                require: false
+                require: true
             },
-            tags_to: {
-                type: [TagsToSchema.schema]
+            user_name: {
+                type: String,
+                require: true
             }
         });
         return schema;
