@@ -34,9 +34,12 @@ export class VLCommentBusiness {
     remove(vLId: string, commentId: string, callback: (error: any, result: any) => void) {
         let pull = {
             $pull: {
-                "_id": commentId
+                comments: {
+                    _id: commentId
+                }
             }
         };
-        this._vLCommentRepo.remove(pull, callback);
+        let opts = {safe: true};
+        this._vLCommentRepo.updateOpts(vLId, pull, opts, callback);
     }
 }

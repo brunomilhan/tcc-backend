@@ -30,13 +30,16 @@ export class VLProblemBusiness {
         this._vLProblemRepo.update(query, update, callback);
     }
 
-    remove(vLId: string, commentId: string, callback: (error: any, result: any) => void) {
+    remove(vLId: string, problemId: string, callback: (error: any, result: any) => void) {
         let pull = {
             $pull: {
-                "_id": commentId
+                problems: {
+                    _id: problemId
+                }
             }
         };
-        this._vLProblemRepo.remove(pull, callback);
+        let opts = {safe: true};
+        this._vLProblemRepo.updateOpts(vLId, pull, opts, callback);
     }
 
 }

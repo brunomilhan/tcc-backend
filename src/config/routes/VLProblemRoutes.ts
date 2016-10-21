@@ -12,7 +12,8 @@ export class VLProblemRoutes {
         let router = express.Router();
 
         router.put("/vacant-lots/:_id/problems", this._vLProblemsController.create);
-        // fix update and delete....
+        router.delete("/vacant-lots/:_id/problems/:problem_id", this._vLProblemsController.delete);
+        // fix delete....
 
         return router;
     }

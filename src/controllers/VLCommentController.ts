@@ -34,7 +34,7 @@ export class VLCommentController {
 
     delete(req: express.Request, res: express.Response): void {
         let vLId: string = req.params["_id"];
-        let vLCommentId: string = req.params["vl_comment_id"];
+        let vLCommentId: string = req.params["comment_id"];
         let vLCommentBusiness = new VLCommentBusiness();
 
         vLCommentBusiness.remove(vLId, vLCommentId, (error, result) => {
