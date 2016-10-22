@@ -37,6 +37,10 @@ export class SolutionsSchema {
             },
             tags_to: {
                 type: [TagsToSchema.schema]
+            },
+            status: {
+                type: String,
+                require: true
             }
         });
         return schema;

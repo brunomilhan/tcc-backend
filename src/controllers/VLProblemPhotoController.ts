@@ -10,8 +10,6 @@ export class VLProblemPhotoController {
         let problemId: string = req.params["problem_id"];
         let business = new VLProblemPhotoBusiness();
 
-        console.log(photo);
-
         business.create(lotId, problemId, photo, (error, result) => {
             if (error)
                 res.send('error');
