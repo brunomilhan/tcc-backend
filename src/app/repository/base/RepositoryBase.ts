@@ -39,4 +39,12 @@ export class RepositoryBase<T extends mongoose.Document> implements IReadWrite<T
     updateOpts(query: any, obj: any, opts: any, callback: (error: any, result: any) => void) {
         this._model.findByIdAndUpdate(query, obj, opts, callback);
     }
+
+    updateQueryOpts(query: any, obj: any, opts: any, callback: (error: any, result: any) => void) {
+        this._model.findOneAndUpdate(query, opts, obj, callback);
+    }
+
+    listRefMatch(query: any, callback: (error: any, result: any) => void) {
+        this._model.find(query, callback);
+    }
 }
