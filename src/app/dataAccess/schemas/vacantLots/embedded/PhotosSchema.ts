@@ -10,7 +10,7 @@ export class PhotosSchema {
                 require: true
             },
             upload_by_user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             details: {
