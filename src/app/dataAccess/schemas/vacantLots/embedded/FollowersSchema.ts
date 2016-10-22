@@ -6,7 +6,7 @@ export class FollowersSchema {
     static get schema() {
         let schema = mongooseInstance.Schema({
             user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             user_name: {
