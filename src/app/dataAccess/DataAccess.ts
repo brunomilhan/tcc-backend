@@ -17,7 +17,7 @@ class DataAccess {
             console.log('connect on mongo :) !!!');
         });
         this.mongooseInstance = mongoose.connect('mongodb://localhost/mongo_helloword');
-
+        this.mongooseInstance.set('debug', true);
         return this.mongooseInstance;
     }
 }
