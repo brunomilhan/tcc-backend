@@ -19,10 +19,10 @@ export class AchievementsSchema {
             },
             date: {
                 type: Date,
-                required: true
+                default: Date.now
             },
             user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             user_name: {

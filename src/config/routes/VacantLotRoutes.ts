@@ -6,6 +6,7 @@ import {VLProblemController} from "../../controllers/VLProblemController";
 import {VLProblemPhotoController} from "../../controllers/VLProblemPhotoController";
 import {SolutionController} from "../../controllers/SolutionController";
 import {SolutionTaskController} from "../../controllers/SolutionTaskController";
+import {VLAchievementController} from "../../controllers/VLAchievementController";
 
 export class VacantLotRoutes {
     private _vacantlotController: VacantLotController;
@@ -14,6 +15,7 @@ export class VacantLotRoutes {
     private _vLProblemPhotoController: VLProblemPhotoController;
     private _vLSolutionController: SolutionController;
     private _solutionTaskController: SolutionTaskController;
+    private _vLAchievementController: VLAchievementController;
 
     constructor() {
         this._vacantlotController = new VacantLotController();
@@ -22,6 +24,7 @@ export class VacantLotRoutes {
         this._vLProblemPhotoController = new VLProblemPhotoController();
         this._vLSolutionController = new SolutionController();
         this._solutionTaskController = new SolutionTaskController();
+        this._vLAchievementController = new VLAchievementController();
     }
 
     get routes() {
@@ -52,6 +55,10 @@ export class VacantLotRoutes {
         // Solution Tasks routes
         router.post("/vacant-lots/:_id/solutions/:solution_id/tasks", this._solutionTaskController.create);
         router.delete("/vacant-lots/:_id/solutions/:solution_id/tasks/:task_id", this._solutionTaskController.delete);
+
+        // Solution Tasks routes
+        router.post("/vacant-lots/:_id/achievements", this._vLAchievementController.create);
+        router.delete("/vacant-lots/:_id/achievements/:achievement_id", this._vLAchievementController.delete);
 
         return router;
     }
