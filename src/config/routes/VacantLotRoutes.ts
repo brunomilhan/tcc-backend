@@ -5,6 +5,7 @@ import {VLCommentController} from "../../controllers/VLCommentController";
 import {VLProblemController} from "../../controllers/VLProblemController";
 import {VLProblemPhotoController} from "../../controllers/VLProblemPhotoController";
 import {SolutionController} from "../../controllers/SolutionController";
+import {SolutionTaskController} from "../../controllers/SolutionTaskController";
 
 export class VacantLotRoutes {
     private _vacantlotController: VacantLotController;
@@ -12,6 +13,7 @@ export class VacantLotRoutes {
     private _vLProblemController: VLProblemController;
     private _vLProblemPhotoController: VLProblemPhotoController;
     private _vLSolutionController: SolutionController;
+    private _solutionTaskController: SolutionTaskController;
 
     constructor() {
         this._vacantlotController = new VacantLotController();
@@ -19,6 +21,7 @@ export class VacantLotRoutes {
         this._vLProblemController = new VLProblemController();
         this._vLProblemPhotoController = new VLProblemPhotoController();
         this._vLSolutionController = new SolutionController();
+        this._solutionTaskController = new SolutionTaskController();
     }
 
     get routes() {
@@ -43,8 +46,12 @@ export class VacantLotRoutes {
         router.delete("/vacant-lots/:_id/problems/:problem_id/photos/:photo_id", this._vLProblemPhotoController.delete);
 
         // Solutions routes
-        router.post("/vacant-lots/:_id/solutions/", this._vLSolutionController.create);
+        router.post("/vacant-lots/:_id/solutions", this._vLSolutionController.create);
         router.delete("/vacant-lots/:_id/solutions/:solution_id", this._vLSolutionController.delete);
+
+        // Solution Tasks routes
+        router.post("/vacant-lots/:_id/solutions/:solution_id/tasks", this._solutionTaskController.create);
+        router.delete("/vacant-lots/:_id/solutions/:solution_id/tasks/:task_id", this._solutionTaskController.delete);
 
         return router;
     }

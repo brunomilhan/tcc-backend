@@ -7,5 +7,6 @@ export interface IVLProblemModel extends mongoose.Document {
     problem_text: string;
     likes: number;
     status: string;
+    // need add photos array here?
 
 }

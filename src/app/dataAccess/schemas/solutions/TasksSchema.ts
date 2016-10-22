@@ -16,7 +16,7 @@ export class TasksSchema {
             },
             date_created: {
                 type: Date,
-                require: true
+                default: Date.now
             },
             difficult: {
                 type: String,
@@ -27,7 +27,7 @@ export class TasksSchema {
                 require: true
             },
             created_by_user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             likes: {
