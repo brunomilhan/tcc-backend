@@ -18,32 +18,16 @@ export class VLProblemController {
         });
     }
 
-    update(req: express.Request, res: express.Response): void {
-        let vLProblem: IVLProblemModel = <IVLProblemModel>req.body;
+    delete(req: express.Request, res: express.Response): void {
         let vLID: string = req.params["_id"];
+        let vLProblemId = req.params["problem_id"]
         let vLProblemBusiness = new VLProblemBusiness();
 
-        vLProblemBusiness.update(vLID, vLProblem, (error, result) => {
+        vLProblemBusiness.remove(vLID, vLProblemId, (error, result) => {
             if (error)
                 res.send('error');
             else
                 res.send('success');
         });
     }
-
-    delete(req: express.Request, res: express.Response): void {
-        let vLID: string = req.params["_id"];
-        let vLProblemId = req.params["problem_id"]
-        let vLProblemBusiness = new VLProblemBusiness();
-
-
-
-        vLProblemBusiness.remove(vLID, vLProblemId, (error, result) => {
-            if (error)
-                res.send('error ');
-            else
-                res.send('success');
-        });
-    }
-
 }
