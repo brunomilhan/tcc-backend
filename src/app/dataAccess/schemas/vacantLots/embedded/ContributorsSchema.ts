@@ -4,22 +4,28 @@ let mongooseInstance = DataAccess.mongooseInstance;
 export class ContributorsSchema {
 
     static get schema() {
+        let functionsSchema = mongooseInstance.Schema({
+            title: {
+                type: String,
+                require: true
+            }
+        });
+
         let schema = mongooseInstance.Schema({
             user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             user_name: {
                 type: String,
                 require: true
             },
-            functions: {
-                type: [],
+            score: {
+                type: Number,
                 require: true
             },
-            score: {
-                type: String,
-                require: true
+            functions: {
+                type: [functionsSchema]
             }
         });
         return schema;
