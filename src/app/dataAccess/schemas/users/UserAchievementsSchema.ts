@@ -22,7 +22,7 @@ export class UserAchievementsSchema {
                 required: true
             },
             user_id: {
-                type: Number,
+                type: String,
                 require: true
             },
             user_name: {
